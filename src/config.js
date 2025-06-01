@@ -1,26 +1,18 @@
 module.exports = {
-  email: 'brittany.chiang@gmail.com',
+  email: 'mxm.coppieters@yahoo.com',
 
   socialMedia: [
     {
       name: 'GitHub',
-      url: 'https://github.com/bchiang7',
-    },
-    {
-      name: 'Instagram',
-      url: 'https://www.instagram.com/bchiang7',
+      url: 'https://github.com/maxtechnics',
     },
     {
       name: 'Twitter',
-      url: 'https://twitter.com/bchiang7',
+      url: 'https://twitter.com/Maxim65846912',
     },
     {
       name: 'Linkedin',
-      url: 'https://www.linkedin.com/in/bchiang7',
-    },
-    {
-      name: 'Codepen',
-      url: 'https://codepen.io/bchiang7',
+      url: 'https://www.linkedin.com/in/maxim-coppieters-846014292',
     },
   ],
 
@@ -34,7 +26,7 @@ module.exports = {
       url: '/#jobs',
     },
     {
-      name: 'Work',
+      name: 'Projects',
       url: '/#projects',
     },
     {
@@ -48,9 +40,12 @@ module.exports = {
   ],
 
   colors: {
-    green: '#64ffda',
-    navy: '#0a192f',
-    darkNavy: '#020c1b',
+    // green: '#64ffda',
+    green: '#ffedc5', // Gerald accent
+    // navy: '#0a192f',
+    navy: '#583327', // Gerald outline
+    // darkNavy: '#020c1b'
+    darkNavy: '#583327', // Gerald Outline
   },
 
   srConfig: (delay = 200, viewFactor = 0.25) => ({
