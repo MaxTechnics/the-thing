@@ -121,8 +121,10 @@ const StyledNav = styled.nav`
   .logo-container:hover .hovercrumb {
     opacity: 1;
   }
-  
+
   .logo-container:hover .crumb {
+    opacity: 0;
+  }
 `;
 
 const StyledLinks = styled.div`
