@@ -1,8 +1,8 @@
 ---
-date: '2024-'
-title: 'KCB New year\'s concert'
+date: '2025-01-15'
+title: 'KCB New year concert'
 github: ''
-external: 'https://mobo.ritcs.be/catalog/BJNRU/s/makkelijk-makkelijk-monokimono'
+external: ''
 jobs:
   - Technical head
   - Media management
@@ -12,7 +12,7 @@ company: 'RITCS'
 showInProjects: true
 video_embed: 'vimeo'
 video_title: 'KCB New Year'
-video_id: '089319717'
+video_id: '1089319717'
 ---
 
 I was technical lead in recording the KCB New Year's concert. It was a multicam recorded show in the Royal Flemish Theater (Koninklijke Vlaamse Schouwburg)

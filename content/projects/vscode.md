@@ -1,6 +1,6 @@
 ---
 date: '2021-12-05'
-title: 'Max\'s VSCode Extension'
+title: 'Maxims VSCode Extension'
 github: ''
 external: ''
 tech:
