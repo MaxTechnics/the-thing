@@ -172,7 +172,7 @@ const StyledProject = styled.li`
     }
 
     a {
-      ${({ theme }) => theme.mixins.inlineLink};
+      // ${({ theme }) => theme.mixins.inlineLink};
     }
 
     strong {
@@ -272,26 +272,26 @@ const StyledProject = styled.li`
         }
       }
 
-      &:before {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 3;
-        transition: var(--transition);
-        background-color: var(--navy);
-        mix-blend-mode: screen;
-      }
+      // &:before {
+      //   content: '';
+      //   position: absolute;
+      //   width: 100%;
+      //   height: 100%;
+      //   top: 0;
+      //   left: 0;
+      //   right: 0;
+      //   bottom: 0;
+      //   z-index: 3;
+      //   transition: var(--transition);
+      //   background-color: var(--navy);
+      //   mix-blend-mode: screen;
+      // }
     }
 
     .img {
       border-radius: var(--border-radius);
-      mix-blend-mode: multiply;
-      filter: grayscale(100%) contrast(1) brightness(90%);
+      // mix-blend-mode: multiply;
+      // filter: grayscale(100%) contrast(1) brightness(90%);
 
       @media (max-width: 768px) {
         object-fit: cover;
@@ -323,6 +323,7 @@ const Featured = () => {
               github
               external
               cta
+              cta_url
             }
             html
           }
@@ -348,14 +349,14 @@ const Featured = () => {
   return (
     <section id="projects">
       <h2 className="numbered-heading" ref={revealTitle}>
-        Some Things I’ve Built
+        Some Things I’ve Done
       </h2>
 
       <StyledProjectsGrid>
         {featuredProjects &&
           featuredProjects.map(({ node }, i) => {
             const { frontmatter, html } = node;
-            const { external, title, tech, github, cover, cta } = frontmatter;
+            const { external, title, tech, github, cover, cta, cta_url } = frontmatter;
             const image = getImage(cover);
 
             return (
@@ -383,8 +384,8 @@ const Featured = () => {
 
                     <div className="project-links">
                       {cta && (
-                        <a href={cta} aria-label="Course Link" className="cta">
-                          Learn More
+                        <a href={cta_url} aria-label="External Link" className="cta">
+                          {cta}
                         </a>
                       )}
                       {github && (
