@@ -71,7 +71,7 @@ const Contact = () => {
       </a>
 
       <StaticImage
-        src="../../images/gerald.png"
+        src="../../images/geraldlies.png"
         width={200}
         quality={95}
         className="gerald"
