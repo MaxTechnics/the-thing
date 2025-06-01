@@ -153,7 +153,7 @@ const ArchivePage = ({ location, data }) => {
       <main>
         <header ref={revealTitle}>
           <h1 className="big-heading">Archive</h1>
-          <p className="subtitle">A big list of things I’ve worked on</p>
+          <p className="subtitle">A list of all sorts of things I’ve worked on</p>
         </header>
 
         <StyledTableContainer ref={revealTable}>
@@ -163,14 +163,15 @@ const ArchivePage = ({ location, data }) => {
                 <th>Year</th>
                 <th>Title</th>
                 <th className="hide-on-mobile">Made at</th>
-                <th className="hide-on-mobile">Built with</th>
+                <th className="hide-on-mobile">Function</th>
+                <th className="hide-on-mobile">Technologies</th>
                 <th>Link</th>
               </tr>
             </thead>
             <tbody>
               {projects.length > 0 &&
                 projects.map(({ node }, i) => {
-                  const { date, github, external, title, tech, company } = node.frontmatter;
+                  const { date, github, external, title, tech, jobs, company } = node.frontmatter;
                   return (
                     <tr key={i} ref={el => (revealProjects.current[i] = el)}>
                       <td className="overline year">{`${new Date(date).getFullYear()}`}</td>
@@ -179,6 +180,17 @@ const ArchivePage = ({ location, data }) => {
 
                       <td className="company hide-on-mobile">
                         {company ? <span>{company}</span> : <span>—</span>}
+                      </td>
+
+                      <td className="tech hide-on-mobile">
+                        {jobs?.length > 0 &&
+                          jobs.map((item, i) => (
+                            <span key={i}>
+                              {item}
+                              {''}
+                              {i !== jobs.length - 1 && <span className="separator">&middot;</span>}
+                            </span>
+                          ))}
                       </td>
 
                       <td className="tech hide-on-mobile">
@@ -235,6 +247,7 @@ export const pageQuery = graphql`
             date
             title
             tech
+            jobs
             github
             external
             company
