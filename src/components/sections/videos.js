@@ -25,6 +25,7 @@ const StyledVideoSection = styled.section`
     position: relative;
     margin-top: 50px;
     width: 100%;
+    height: -webkit-max-content; /* Safari fix */
 
     @media (max-width: 1080px) {
       //   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -193,7 +194,7 @@ const Vijeos = () => {
     return (
       <div className="project-inner">
         <header>
-          <h3 className="project-title">{`${video_title  } `}</h3>
+          <h3 className="project-title">{`${video_title} `}</h3>
 
           <div className="project-description" style={extrastyle}>
             {video_embed === 'vimeo' && (
