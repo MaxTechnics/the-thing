@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { srConfig, email } from '@config';
 import sr from '@utils/sr';
 import { usePrefersReducedMotion } from '@hooks';
+import { StaticImage } from 'gatsby-plugin-image';
 
 const StyledContactSection = styled.section`
   max-width: 600px;
@@ -39,6 +40,10 @@ const StyledContactSection = styled.section`
     ${({ theme }) => theme.mixins.bigButton};
     margin-top: 50px;
   }
+
+  .gerald {
+    margin-top: 1rem;
+  }
 `;
 
 const Contact = () => {
@@ -59,14 +64,21 @@ const Contact = () => {
 
       <h2 className="title">Get In Touch</h2>
 
-      <p>
-        Although I’m not currently looking for any new opportunities, my inbox is always open.
-        Whether you have a question or just want to say hi, I’ll try my best to get back to you!
-      </p>
+      <p>Let's geek out together!</p>
 
       <a className="email-link" href={`mailto:${email}`}>
         Say Hello
       </a>
+
+      <StaticImage
+        src="../../images/gerald.png"
+        width={200}
+        quality={95}
+        className="gerald"
+        formats={['AUTO', 'WEBP', 'AVIF']}
+        objectFit="contain"
+        alt="Gerald"
+      />
     </StyledContactSection>
   );
 };
