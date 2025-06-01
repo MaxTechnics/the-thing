@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import anime from 'animejs';
 import styled from 'styled-components';
-import { IconLoader } from '@components/icons';
+import { StaticImage } from 'gatsby-plugin-image';
 
 const StyledLoader = styled.div`
   ${({ theme }) => theme.mixins.flexCenter};
@@ -34,6 +34,10 @@ const StyledLoader = styled.div`
       }
     }
   }
+
+  .gerald {
+    opacity: 0;
+  }
 `;
 
 const Loader = ({ finishLoading }) => {
@@ -46,25 +50,29 @@ const Loader = ({ finishLoading }) => {
 
     loader
       .add({
-        targets: '#logo path',
+        targets: '.gerald',
         delay: 300,
-        duration: 1500,
-        easing: 'easeInOutQuart',
-        strokeDashoffset: [anime.setDashoffset, 0],
-      })
-      .add({
-        targets: '#logo #B',
-        duration: 700,
+        duration: 800,
         easing: 'easeInOutQuart',
         opacity: 1,
+        rotate: '180deg',
       })
       .add({
-        targets: '#logo',
-        delay: 500,
+        targets: '.gerald',
+        duration: 800,
+        easing: 'easeInOutQuart',
+        // rotate: '720deg'
+        rotate: '360deg',
+      })
+      .add({
+        targets: '.gerald',
+        // delay: 500,
         duration: 300,
         easing: 'easeInOutQuart',
         opacity: 0,
         scale: 0.1,
+        // rotate: '900deg'
+        // rotate: '560deg'
       })
       .add({
         targets: '.loader',
@@ -86,7 +94,17 @@ const Loader = ({ finishLoading }) => {
       <Helmet bodyAttributes={{ class: `hidden` }} />
 
       <div className="logo-wrapper">
-        <IconLoader />
+        {/* <IconLoader /> */}
+        <StaticImage
+          backgroundColor="transparent"
+          src="../images/gerald.png"
+          width={100}
+          quality={95}
+          className="gerald"
+          formats={['AUTO', 'WEBP', 'AVIF']}
+          objectFit="contain"
+          alt="Gerald"
+        />
       </div>
     </StyledLoader>
   );
