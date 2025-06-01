@@ -7,7 +7,8 @@ import { navLinks } from '@config';
 import { loaderDelay } from '@utils';
 import { useScrollDirection, usePrefersReducedMotion } from '@hooks';
 import { Menu } from '@components';
-import { IconLogo, IconHex } from '@components/icons';
+// import { IconLogo, IconHex } from '@components/icons';
+import { StaticImage } from 'gatsby-plugin-image';
 
 const StyledHeader = styled.header`
   ${({ theme }) => theme.mixins.flexBetween};
@@ -17,7 +18,8 @@ const StyledHeader = styled.header`
   padding: 0px 50px;
   width: 100%;
   height: var(--nav-height);
-  background-color: rgba(10, 25, 47, 0.85);
+  // background-color: rgba(10, 25, 47, 0.85);
+  background-color: var(--navcolor);
   filter: none !important;
   pointer-events: auto !important;
   user-select: auto !important;
@@ -97,16 +99,30 @@ const StyledNav = styled.nav`
         }
       }
 
-      &:hover,
-      &:focus {
-        outline: 0;
-        transform: translate(-4px, -4px);
-        .hex-container {
-          transform: translate(4px, 3px);
-        }
-      }
+      // &:hover,
+      // &:focus {
+      //   outline: 0;
+      //   transform: translate(-4px, -4px);
+      //   .hex-container {
+      //     transform: translate(4px, 3px);
     }
   }
+
+  .crumb,
+  .hovercrumb {
+    position: absolute;
+    transition: opacity 0.3s ease-out;
+  }
+
+  .hovercrumb {
+    opacity: 0;
+  }
+
+  .logo-container:hover .hovercrumb {
+    opacity: 1;
+  }
+  
+  .logo-container:hover .crumb {
 `;
 
 const StyledLinks = styled.div`
@@ -185,20 +201,22 @@ const Nav = ({ isHome }) => {
     <div className="logo" tabIndex="-1">
       {isHome ? (
         <a href="/" aria-label="home">
-          <div className="hex-container">
-            <IconHex />
-          </div>
+          {/* <div className="hex-container"> */}
+          {/* </div> */}
           <div className="logo-container">
-            <IconLogo />
+            {/* <IconLogo /> */}
+            <StaticImage className="crumb" src="../images/crumbWave_Square_compressed.png" />
+            <StaticImage className="hovercrumb" src="../images/crumbThis_Square_compressed.png" />
           </div>
         </a>
       ) : (
         <Link to="/" aria-label="home">
-          <div className="hex-container">
-            <IconHex />
-          </div>
+          {/* <div className="hex-container"> */}
+          {/* </div> */}
           <div className="logo-container">
-            <IconLogo />
+            {/* <IconLogo /> */}
+            <StaticImage className="crumb" src="../images/crumbWave_Square_compressed.png" />
+            <StaticImage className="hovercrumb" src="../images/crumbWave_Square_compressed.png" />
           </div>
         </Link>
       )}
