@@ -40,16 +40,19 @@ const StyledHeader = styled.header`
       css`
         height: var(--nav-scroll-height);
         transform: translateY(0px);
-        background-color: rgba(10, 25, 47, 0.85);
+        // background-color: rgba(10, 25, 47, 0.85);
+        background-color: var(--navcolor);
         box-shadow: 0 10px 30px -10px var(--navy-shadow);
       `};
 
     ${props =>
     props.scrollDirection === 'down' &&
-      !props.scrolledToTop &&
+      !props.scrolledToTop && // only do translatey on mobile
       css`
         height: var(--nav-scroll-height);
-        transform: translateY(calc(var(--nav-scroll-height) * -1));
+        @media (max-width: 768px) {
+          transform: translateY(calc(var(--nav-scroll-height) * -1));
+        }
         box-shadow: 0 10px 30px -10px var(--navy-shadow);
       `};
   }
@@ -105,6 +108,8 @@ const StyledNav = styled.nav`
       //   transform: translate(-4px, -4px);
       //   .hex-container {
       //     transform: translate(4px, 3px);
+      //   }
+      // }
     }
   }
 
@@ -204,6 +209,7 @@ const Nav = ({ isHome }) => {
       {isHome ? (
         <a href="/" aria-label="home">
           {/* <div className="hex-container"> */}
+          {/* <IconHex /> */}
           {/* </div> */}
           <div className="logo-container">
             {/* <IconLogo /> */}
@@ -214,6 +220,7 @@ const Nav = ({ isHome }) => {
       ) : (
         <Link to="/" aria-label="home">
           {/* <div className="hex-container"> */}
+          {/* <IconHex /> */}
           {/* </div> */}
           <div className="logo-container">
             {/* <IconLogo /> */}
